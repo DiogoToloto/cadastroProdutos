@@ -1,23 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Banner from './componentes/Banner/Banner';
+import { Formulario } from './componentes/Formulario/Formulario';
+import Time from './componentes/Time/Time';
 
 function App() {
+
+  const times = [
+  {
+    nome: 'Programação',
+    corPrimaria: '#57c278',
+    corSeundaria: '#D9F7E9'
+  },
+  {
+    nome: 'Front-End',
+    corPrimaria: '#82CFFA',
+    corSeundaria: '#E8F8FF'
+  },
+  {
+    nome: 'Data Science',
+    corPrimaria: '#A6D157',
+    corSeundaria: '#F0F8E2'
+  },
+  {
+    nome: 'Devops',
+    corPrimaria: '#E06B69',
+    corSeundaria: '#FDE7E8'
+  },
+  {
+    nome: 'UX e Design',
+    corPrimaria: '#DB6EBF',
+    corSeundaria: '#FAE9F5'
+  },
+  {
+    nome: 'Mobile',
+    corPrimaria: 'FFBA05',
+    corSeundaria: 'FFF5D9'
+  },
+  {
+    nome: 'Inovação e Gestão',
+    corPrimaria: 'FF8A29',
+    corSeundaria: 'FFEEDF'
+  },
+];
+
+  const [colaboradores, setColaboradores] = useState([]);
+
+  const aoNovoColaboradorAdicionado = (colaborador) => {
+
+    console.log(colaboradores)
+    setColaboradores([...colaboradores,colaborador]);
+
+  } 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Banner/>
+      <Formulario aoColaboradorCadastrado={colaboradores => aoNovoColaboradorAdicionado(colaboradores)}/>
+        <Time nome="Front-end"/>
     </div>
   );
 }
