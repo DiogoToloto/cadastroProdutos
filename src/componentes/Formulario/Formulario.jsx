@@ -14,7 +14,6 @@ export const Formulario = (props) => {
         'UX e Design',
         'Mobile',
         'Inovação e Gestão'
-
     ]
 
     const aoSalvar = (event) => {
