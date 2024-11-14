@@ -55,8 +55,14 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Formulario aoColaboradorCadastrado={colaboradores => aoNovoColaboradorAdicionado(colaboradores)}/>
-        {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSegundaria={time.corSegundaria}/>)}
+      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaboradores => aoNovoColaboradorAdicionado(colaboradores)}/>
+        {times.map(time => <Time 
+        key={time.nome} 
+        nome={time.nome} 
+        corPrimaria={time.corPrimaria} 
+        corSegundaria={time.corSegundaria}
+        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        />)}
     </div>
   );
 }

@@ -9,4 +9,11 @@
         display: inline-block;
         padding-bottom: 0.5rem;
     }
+
+    .colaboradores{
+        display: flex;
+        justify-content: space-around;
+        margin: 32px;
+        flex-wrap: wrap;
+    }
 }

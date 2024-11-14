@@ -6,7 +6,9 @@ import "./ListaSuspensa.css";
         <div className="lista-suspensa">
             <label>{props.label}</label>
             <select value={props.valor} onChange={ event => props.aoAlterado(event.target.value)} required={props.obrigatorio}>
-                {props.itens.map(item => <option key={item}>{item}</option>)}
+                {props.itens.map(item => <option key={item}>{item}
+                </option>)}
+                <option value=""></option>
             </select>
         </div>
     )
