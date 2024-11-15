@@ -1,0 +1,17 @@
+.footer {
+    background-color: #6278F7;
+    background-image: url(/src/assets/fundo.png);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 64px;
+
+    .redesSocias {
+        display: flex;
+        gap: 30px;
+    }
+
+    .desenvolvedor {
+        color: #fff;
+    }
+}
