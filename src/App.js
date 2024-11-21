@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import Banner from './componentes/Banner/Banner';
 import { Formulario } from './componentes/Formulario/Formulario';
@@ -6,43 +7,36 @@ import Footer from './componentes/Footer/Footer';
 
 function App() {
 
-  const times = [
+  const [times,setTimes] = useState([
   {
     nome: 'Programação',
-    corPrimaria: '#57c278',
-    corSegundaria: '#D9F7E9'
+    cor: '#D9F7E9'
   },
   {
     nome: 'Front-End',
-    corPrimaria: '#82CFFA',
-    corSegundaria: '#E8F8FF'
+    cor: '#E8F8FF'
   },
   {
     nome: 'Data Science',
-    corPrimaria: '#A6D157',
-    corSegundaria: '#F0F8E2'
+    cor: '#F0F8E2'
   },
   {
     nome: 'Devops',
-    corPrimaria: '#E06B69',
-    corSegundaria: '#FDE7E8'
+    cor: '#FDE7E8'
   },
   {
     nome: 'UX e Design',
-    corPrimaria: '#DB6EBF',
-    corSegundaria: '#FAE9F5'
+    cor: '#FAE9F5'
   },
   {
     nome: 'Mobile',
-    corPrimaria: '#FFBA05',
-    corSegundaria: '#FFF5D9'
+    cor: '#FFF5D9'
   },
   {
     nome: 'Inovação e Gestão',
-    corPrimaria: '#FF8A29',
-    corSegundaria: '#FFEEDF'
+    cor: '#FFEEDF'
   }
-];
+]);
 
   const [colaboradores, setColaboradores] = useState([]);
 
@@ -53,16 +47,29 @@ function App() {
 
   } 
 
+  const deletarColaborador = () => {
+    console.log("Deletando colaborador");
+  }
+
+  function mudarCorDoTime(cor, nome){
+    setTimes(times.map(time => {
+       if(time.nome === nome){
+      time.cor = cor;
+    }
+    return time;
+  }))
+  }
+
   return (
     <div className="App">
       <Banner/>
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaboradores => aoNovoColaboradorAdicionado(colaboradores)}/>
         {times.map(time => <Time 
+        mudarCor={mudarCorDoTime}
         key={time.nome} 
-        nome={time.nome} 
-        corPrimaria={time.corPrimaria} 
-        corSegundaria={time.corSegundaria}
+        time={time}
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        aoDeletar={deletarColaborador}
         />)}
         <Footer/>
     </div>
