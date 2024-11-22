@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Formulario.css"
-import { CampoTexto } from "../CampoTexto/CampoTexto";
+import { Campo } from "../Campo/Campo";
 import ListaSuspensa from "../ListaSuspensa/ListaSuspensa";
 import Botao from "../Botao/Botao";
 
@@ -33,21 +33,21 @@ export const Formulario = (props) => {
         <section className="formulario">
             <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                    <CampoTexto
+                    <Campo
                     obrigatorio={true} 
                     label="Nome" 
                     placeholder="Digite seu nome"
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}
                     />
-                    <CampoTexto
+                    <Campo
                     obrigatorio={true}  
                     label="Cargo" 
                     placeholder="Digire seu cargo"
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}
                     />
-                    <CampoTexto 
+                    <Campo 
                     label="Imagem" 
                     placeholder="Digite o endereço da imagem"
                     valor={imagem}
@@ -71,15 +71,17 @@ export const Formulario = (props) => {
                 setCorTime('');
                 setNomeTime('');
                 }}>
+                    
                 <h2>Preencha os dados para criar um novo time</h2>
-                    <CampoTexto
+                    <Campo
                     obrigatorio
                     label="Nome" 
                     placeholder="Digite o nome do time"
                     valor={nomeTime}
                     aoAlterado={valor => setNomeTime(valor)}
                     />
-                    <CampoTexto
+                    <Campo
+                    type="color"
                     obrigatorio
                     label="Cor" 
                     placeholder="Digite a cor do time"

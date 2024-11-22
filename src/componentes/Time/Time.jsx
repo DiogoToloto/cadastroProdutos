@@ -4,7 +4,7 @@ import "./Time.css";
 import hexToRgba from 'hex-to-rgba';
 
 // aqui estou desestruturando o props
-const Time = ({time, colaboradores, aoDeletar, mudarCor}) => {
+const Time = ({time, colaboradores, aoDeletar, mudarCor, aoFavoritar}) => {
 
     return(
         //vendo se o 
@@ -23,7 +23,19 @@ const Time = ({time, colaboradores, aoDeletar, mudarCor}) => {
             </h3>
 
             <div className="colaboradores">
-                {colaboradores.map((colaborador, indice) => { return <Colaborador corDeFundo={time.cor} key={indice} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} aoDeletar={aoDeletar}/>})}
+                {colaboradores.map((colaborador, indice) => { 
+                    return (
+                    <Colaborador 
+                        corDeFundo={time.cor} 
+                        key={indice}
+                        colaborador={colaborador}
+                        aoDeletar={aoDeletar}
+                        aoFavoritar={aoFavoritar}
+                    />
+                            )
+                        }
+                    )
+                }
             </div>
 
         </section>

@@ -1,4 +1,4 @@
-.campo-texto {
+.campo {
     margin: 24px 0px;
 
     label {
@@ -8,7 +8,7 @@
     }
 
     input {
-        background-color: #fff;
+        background-color: #ffffff;
         box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
         width: 100%;
         border: none;
@@ -19,3 +19,7 @@
     }
 }
 
+.campo-color input{
+    padding: 8px 24px;
+    height: 40px;
+}
