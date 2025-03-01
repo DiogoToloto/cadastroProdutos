@@ -1,6 +1,6 @@
 .colaborador {
     position: relative;
-    width: 280px;
+    width: 350px;
 }
 
 .colaborador .cabecalho {
@@ -8,23 +8,22 @@
     border-radius: 10px 10px 0px 0px;
 }
 .colaborador img {
-    width: 150px;
-    border-radius: 50%;
+    width: 100%;
     position: relative;
-    transform: translateY(50%);
+    border-radius: 10px 10px 0px 0px;
 }
 
 .colaborador .rodape {
     background: #FFFFFF;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 10px 10px;
-    padding-top: 50px;
+    padding-top: 15px;
     padding-bottom: 50px;
 }
 
 .colaborador .rodape h4 {
     color: #6278F7;
-    font-size: 18px;
+    font-size: 2rem;
     line-height: 22px;
     font-weight: bold;
     margin-bottom: 8px;
@@ -41,4 +40,6 @@
     position: absolute;
     right: -10px;
     top: -10px;
+    z-index: 1;
+    color: #8a8a8a;
 }

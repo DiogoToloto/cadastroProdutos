@@ -23,16 +23,19 @@ const Time = ({time, colaboradores, aoDeletar, mudarCor, aoFavoritar}) => {
             </h3>
 
             <div className="colaboradores">
-                {colaboradores.map((colaborador, indice) => { 
+                {colaboradores.map((colaborador) => { 
+                    
                     return (
                     <Colaborador 
                         corDeFundo={time.cor} 
-                        key={indice}
+                        key={colaborador.id}
                         colaborador={colaborador}
                         aoDeletar={aoDeletar}
                         aoFavoritar={aoFavoritar}
                     />
+                    
                             )
+                            
                         }
                     )
                 }

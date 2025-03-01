@@ -14,7 +14,7 @@ const Footer = () => {
                 <a href="https://www.instagram.com/diogo_silvss/" target="blank"><img src={logoInst} alt="Instagram" /></a>
             </div>
             <div className="logoPrincipal">
-                <img src={logoOrgano} alt="" />
+                <h1>My Movie Galerry</h1>
             </div>
             <div className="desenvolvedor">
                 <p>Desenvolvido por DiogoToloto</p>

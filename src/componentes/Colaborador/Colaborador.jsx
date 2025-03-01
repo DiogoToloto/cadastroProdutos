@@ -11,7 +11,7 @@ const Colaborador = ({corDeFundo, aoDeletar, colaborador, aoFavoritar}) => {
     }
 
     const propsFavorito = {
-        size: 25,
+        size: 35,
         onClick: favoritar,
     }
 
@@ -19,7 +19,7 @@ const Colaborador = ({corDeFundo, aoDeletar, colaborador, aoFavoritar}) => {
         <div className="colaborador">
 
             <IoMdCloseCircle 
-                size={25} 
+                size={35} 
                 className="deletar" 
                 onClick={() => {aoDeletar(colaborador.id)}}
             />

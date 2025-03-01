@@ -3,6 +3,8 @@ import "./Formulario.css"
 import { Campo } from "../Campo/Campo";
 import ListaSuspensa from "../ListaSuspensa/ListaSuspensa";
 import Botao from "../Botao/Botao";
+import CampoPesquisa from "../CampoPesquisa/CampoPesquisa";
+import { v4 as uuidv4 } from 'uuid';
 
 export const Formulario = (props) => {
 
@@ -10,6 +12,7 @@ export const Formulario = (props) => {
         console.log("Form foi submetido =>", nome, cargo, imagem)
         event.preventDefault();
         props.aoColaboradorCadastrado({
+            id: uuidv4(),
             nome,
             cargo,
             imagem,
@@ -32,30 +35,32 @@ export const Formulario = (props) => {
     return (
         <section className="formulario">
             <form onSubmit={aoSalvar}>
-                <h2>Preencha os dados para criar o card do colaborador</h2>
+                <h2>Preencha os dados para criar o card do Filme</h2>
                     <Campo
                     obrigatorio={true} 
-                    label="Nome" 
-                    placeholder="Digite seu nome"
+                    label="Titulo" 
+                    placeholder="Digite o titulo do filme"
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}
+                    maxCaracter={40}
                     />
                     <Campo
                     obrigatorio={true}  
-                    label="Cargo" 
-                    placeholder="Digire seu cargo"
+                    label="Descrição" 
+                    placeholder="Digite a descrição"
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}
+                    maxCaracter={60}
                     />
                     <Campo 
-                    label="Imagem" 
-                    placeholder="Digite o endereço da imagem"
+                    label="Poster" 
+                    placeholder="Url do poster"
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
                     />
                     <ListaSuspensa
                     obrigatorio={true} 
-                    label="Times"
+                    label="Categoria"
                     itens={props.times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
@@ -72,7 +77,7 @@ export const Formulario = (props) => {
                 setNomeTime('');
                 }}>
                     
-                <h2>Preencha os dados para criar um novo time</h2>
+                <h2>Preencha os dados para criar uma nova categoria</h2>
                     <Campo
                     obrigatorio
                     label="Nome" 
@@ -89,7 +94,22 @@ export const Formulario = (props) => {
                     aoAlterado={valor => setCorTime(valor)}
                     />
                     <Botao>
-                        Criar novo time
+                        Criar nova categoria
+                    </Botao>
+            </form>
+            <form onSubmit={(event) => {
+                event.preventDefault()
+                props.cadastrarTime({nome: nomeTime, cor: corTime})
+                setCorTime('');
+                setNomeTime('');
+                }}>                    
+                    <CampoPesquisa
+                    label='Pesquisa'
+                    placeholder='Pesquise por categoria'
+                    
+                    />
+                    <Botao>
+                        Pesquisar
                     </Botao>
             </form>
 
